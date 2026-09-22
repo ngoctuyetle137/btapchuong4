@@ -1,0 +1,1226 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Blog giới thiệu bản thân sinh viên">
+
+    <title>Blog cá nhân - Tiết Lê</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        header {
+            background-color: white;
+
+            padding: 15px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: #4b6cb7;
+        }
+
+        header nav > ul {
+            display: flex;
+
+            list-style: none;
+
+            gap: 25px;
+        }
+
+
+        header nav ul li a {
+            color: #333;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+
+        header nav ul li a:hover {
+            color: #4b6cb7;
+        }
+
+        .hero {
+            min-height: 650px;
+
+            padding: 80px 10%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 50px;
+
+            background-image:
+                linear-gradient(
+                    rgba(75, 108, 183, 0.85),
+                    rgba(24, 40, 72, 0.9)
+                ),
+                url("images/background.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+        }
+
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+
+        .hero-text h1 {
+            font-size: 50px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero-text h1 span {
+            color: #ffd166;
+        }
+
+
+        .hero-text p {
+            font-size: 19px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .button {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            margin-right: 10px;
+
+            background-color: #ffd166;
+
+            color: #333;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+            transform: translateY(-5px);
+
+            background-color: white;
+        }
+
+
+        .button-contact {
+            background-color: transparent;
+
+            border: 2px solid white;
+
+            color: white;
+        }
+
+        .hero-image img {
+            width: 280px;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 7px solid white;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.3);
+
+            transition: 0.5s;
+        }
+
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+        section {
+            padding: 70px 10%;
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .section-title h2 {
+            font-size: 35px;
+
+            color: #4b6cb7;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-title p {
+            color: #777;
+        }
+        .section-title h2::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+
+            height: 4px;
+
+            margin: 10px auto;
+
+            background-color: #ffd166;
+
+            border-radius: 5px;
+        }
+
+        .about {
+            background-color: white;
+        }
+
+
+        .about-content {
+            display: flex;
+
+            align-items: center;
+
+            gap: 50px;
+        }
+
+
+        .about-text {
+            flex: 1;
+        }
+
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-text strong {
+            color: #4b6cb7;
+        }
+
+
+        .about-box {
+            flex: 1;
+
+            padding: 30px;
+
+            background-color: #f5f7fa;
+
+            border-radius: 15px;
+
+            border-left: 5px solid #4b6cb7;
+        }
+
+
+        .about-box p {
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            background-color: #f5f7fa;
+        }
+
+
+        .skill-list {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+
+        .skill {
+            padding: 12px 22px;
+
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+
+        .skill:hover {
+            transform: scale(1.1);
+
+            background-color: #4b6cb7;
+
+            color: white;
+        }
+
+
+        .projects {
+            background-color: white;
+        }
+
+
+        .project-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .project {
+            background-color: #f5f7fa;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.1);
+
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .project img {
+            width: 100%;
+
+            height: 180px;
+
+            object-fit: cover;
+        }
+
+
+        .project-content {
+            padding: 20px;
+        }
+
+
+        .project-content h3 {
+            color: #4b6cb7;
+
+            margin-bottom: 10px;
+        }
+
+
+        .project-content p {
+            color: #666;
+
+            margin-bottom: 15px;
+        }
+
+
+        .project-content a {
+            color: #4b6cb7;
+
+            font-weight: bold;
+        }
+
+        .journey {
+            background-color: #f5f7fa;
+        }
+
+
+        .timeline {
+            max-width: 800px;
+
+            margin: auto;
+
+            border-left: 4px solid #4b6cb7;
+
+            padding-left: 30px;
+        }
+
+
+        .timeline-item {
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 25px;
+
+            border-radius: 10px;
+
+            position: relative;
+
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 15px;
+
+            height: 15px;
+
+            background-color: #ffd166;
+
+            border: 3px solid #4b6cb7;
+
+            border-radius: 50%;
+
+            left: -42px;
+
+            top: 25px;
+        }
+
+
+        .timeline-item h3 {
+            color: #4b6cb7;
+
+            margin-bottom: 5px;
+        }
+
+        .blog {
+            background-color: white;
+        }
+
+
+        .blog-layout {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            gap: 30px;
+        }
+
+
+        .post {
+            padding: 25px;
+
+            background-color: #f5f7fa;
+
+            border-radius: 15px;
+
+            margin-bottom: 20px;
+
+            transition: 0.3s;
+        }
+
+
+        .post:hover {
+            transform: translateX(5px);
+        }
+
+
+        .post h3 {
+            color: #4b6cb7;
+
+            margin-bottom: 10px;
+        }
+
+
+        .post p {
+            color: #666;
+        }
+
+
+        aside {
+            padding: 25px;
+
+            background-color: #f5f7fa;
+
+            border-radius: 15px;
+
+            height: fit-content;
+        }
+
+
+        aside h3 {
+            color: #4b6cb7;
+
+            margin-bottom: 15px;
+        }
+
+
+        aside ul {
+            list-style: none;
+        }
+
+
+        aside li {
+            margin-bottom: 10px;
+
+            padding-bottom: 10px;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        aside a {
+            color: #555;
+        }
+
+
+        aside a:hover {
+            color: #4b6cb7;
+        }
+
+
+        footer {
+            padding: 50px 10% 20px;
+
+            background-image:
+                linear-gradient(
+                    rgba(24, 40, 72, 0.95),
+                    rgba(24, 40, 72, 0.95)
+                ),
+                url("images/background.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+            margin-bottom: 15px;
+        }
+
+
+        .social {
+            margin: 20px 0;
+        }
+
+
+        .social a {
+            display: inline-block;
+
+            margin: 0 10px;
+
+            color: white;
+
+            transition: 0.3s;
+        }
+
+
+        .social a:hover {
+            color: #ffd166;
+
+            transform: scale(1.1);
+        }
+
+
+        .top-button {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 10px 20px;
+
+            border: 1px solid white;
+
+            border-radius: 20px;
+
+            color: white;
+
+            transition: 0.3s;
+        }
+
+
+        .top-button:hover {
+            background-color: white;
+
+            color: #182848;
+        }
+
+
+        .copyright {
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.3);
+
+            color: #ccc;
+        }
+
+
+        @media screen and (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .about-content {
+                flex-direction: column;
+            }
+
+
+            .project-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media screen and (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+
+            header nav > ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 10px;
+            }
+
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+
+            .hero-image img {
+                width: 220px;
+
+                height: 220px;
+            }
+
+
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+
+
+            section {
+                padding: 50px 6%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body id="top">
+
+    <header>
+
+        <div class="logo">
+            NPT
+        </div>
+
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="#home">
+                        Trang chủ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        Giới thiệu
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects">
+                        Dự án
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#blog">
+                        Bài viết
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Liên hệ
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>
+                Xin chào!
+                <br>
+                Mình là
+                <span>Ngọc Tuyết Lê</span>
+            </h1>
+
+
+            <p>
+                Mình là sinh viên ngành Công nghệ Thông tin.
+                Mình yêu thích thiết kế website, khám phá
+                công nghệ và học hỏi những điều mới.
+            </p>
+
+
+            <a href="#about"
+               class="button">
+                Xem hồ sơ
+            </a>
+
+
+            <a href="#contact"
+               class="button button-contact">
+                Liên hệ tôi
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img src="1789370055153_118351331079796134_g1382698215456813874_577824565507dff1604096f446f0c3e9.jpg"
+                 alt="Ảnh đại diện">
+
+        </div>
+
+    </section>
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <h2>Giới thiệu bản thân</h2>
+
+            <p>
+                Một chút thông tin về mình
+            </p>
+
+        </div>
+
+
+        <div class="about-content">
+
+
+            <div class="about-text">
+
+                <p>
+                    Xin chào! Mình là
+                    <strong>Lê Thị Ngọc Tuyết</strong>.
+                </p>
+
+                <p>
+                    Hiện tại mình đang là sinh viên
+                    <strong>Công nghệ Thông tin</strong>.
+                    Mình đang tìm hiểu về lập trình,
+                    thiết kế website và các công nghệ mới.
+                </p>
+
+                <p>
+                    Ngoài việc học, mình thích
+                    <em>nghe nhạc, xem phim, thiết kế</em>
+                    và dành thời gian khám phá những
+                    điều thú vị trên Internet.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <p>
+                    <strong>Trường:</strong>
+                    Đại học Giao thông Vận tải TP.HCM
+                </p>
+
+                <p>
+                    <strong>Ngành:</strong>
+                    Công nghệ Thông tin
+                </p>
+
+                <p>
+                    <strong>Sở thích:</strong>
+                    Thiết kế, âm nhạc, phim ảnh
+                </p>
+
+                <p>
+                    <strong>Định hướng:</strong>
+                    Phát triển kỹ năng công nghệ
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="skills">
+
+        <div class="section-title">
+
+            <h2>Kỹ năng / Công cụ</h2>
+
+            <p>
+                Những kiến thức mình đang học
+            </p>
+
+        </div>
+
+
+        <div class="skill-list">
+
+            <div class="skill">
+                HTML
+            </div>
+
+            <div class="skill">
+                CSS
+            </div>
+
+            <div class="skill">
+                C++
+            </div>
+
+            <div class="skill">
+                Git
+            </div>
+
+            <div class="skill">
+                GitHub
+            </div>
+
+            <div class="skill">
+                VS Code
+            </div>
+
+            <div class="skill">
+                Figma
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="projects" id="projects">
+
+        <div class="section-title">
+
+            <h2>Dự án / Hoạt động nổi bật</h2>
+
+            <p>
+                Một số bài tập và dự án mình đã thực hiện
+            </p>
+
+        </div>
+
+
+        <div class="project-list">
+
+
+            <article class="project">
+
+                <img src="images/project1.jpg"
+                     alt="Dự án website">
+
+                <div class="project-content">
+
+                    <h3>
+                        Website giới thiệu bản thân
+                    </h3>
+
+                    <p>
+                        Thiết kế website cá nhân bằng
+                        HTML và CSS, tập trung vào
+                        bố cục và giao diện.
+                    </p>
+
+                    <a href="#">
+                        Xem chi tiết →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project">
+
+                <img src="images/project2.jpg"
+                     alt="Dự án quản lý">
+
+                <div class="project-content">
+
+                    <h3>
+                        Quản lý dữ liệu
+                    </h3>
+
+                    <p>
+                        Bài tập lập trình sử dụng
+                        cấu trúc dữ liệu và các thao tác
+                        thêm, xóa, tìm kiếm.
+                    </p>
+
+                    <a href="#">
+                        Xem chi tiết →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project">
+
+                <img src="images/project3.jpg"
+                     alt="Thiết kế Figma">
+
+                <div class="project-content">
+
+                    <h3>
+                        Thiết kế giao diện Figma
+                    </h3>
+
+                    <p>
+                        Thiết kế wireframe và giao diện
+                        website trước khi tiến hành
+                        viết code.
+                    </p>
+
+                    <a href="#">
+                        Xem chi tiết →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="journey">
+
+        <div class="section-title">
+
+            <h2>Hành trình của mình</h2>
+
+            <p>
+                Những cột mốc đáng nhớ
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <h3>2024 - Bắt đầu tìm hiểu CNTT</h3>
+
+                <p>
+                    Bắt đầu làm quen với lập trình
+                    và những kiến thức cơ bản
+                    về công nghệ thông tin.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2025 - Học lập trình</h3>
+
+                <p>
+                    Tìm hiểu C/C++, cấu trúc dữ liệu
+                    và các kiến thức cơ bản
+                    về lập trình hướng đối tượng.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2026 - Thiết kế website</h3>
+
+                <p>
+                    Bắt đầu thực hiện các bài tập
+                    thiết kế website bằng HTML,
+                    CSS và Figma.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>Tương lai</h3>
+
+                <p>
+                    Tiếp tục học hỏi và xây dựng
+                    những dự án cá nhân để nâng cao
+                    kỹ năng của bản thân.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="blog" id="blog">
+
+        <div class="section-title">
+
+            <h2>Bài viết / Chia sẻ</h2>
+
+            <p>
+                Một số điều mình muốn chia sẻ
+            </p>
+
+        </div>
+
+
+        <div class="blog-layout">
+
+
+            <div>
+
+
+                <article class="post">
+
+                    <h3>
+                        Những điều mình học được khi học lập trình
+                    </h3>
+
+                    <p>
+                        Khi bắt đầu học lập trình, mình nhận ra
+                        rằng việc hiểu bản chất quan trọng hơn
+                        việc chỉ nhớ cú pháp. Mỗi bài tập đều
+                        giúp mình hiểu thêm về cách giải quyết
+                        vấn đề.
+                    </p>
+
+                </article>
+
+
+                <article class="post">
+
+                    <h3>
+                        Vì sao mình thích thiết kế website?
+                    </h3>
+
+                    <p>
+                        Thiết kế website giúp mình kết hợp
+                        giữa công nghệ và sự sáng tạo.
+                        Mình có thể tự xây dựng bố cục,
+                        màu sắc và giao diện theo ý tưởng
+                        của mình.
+                    </p>
+
+                </article>
+
+
+                <article class="post">
+
+                    <h3>
+                        Một ngày học tập của mình
+                    </h3>
+
+                    <p>
+                        Mình thường chia thời gian cho việc
+                        học trên lớp, làm bài tập và dành
+                        thêm thời gian để thực hành những
+                        kiến thức đã học.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <aside>
+
+                <h3>
+                    Bài viết mới nhất
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Học HTML từ đâu?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            CSS có khó không?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Những công cụ mình thường dùng
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Kinh nghiệm làm website đầu tiên
+                        </a>
+                    </li>
+
+                </ul>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+
+    <footer id="contact">
+
+        <h2>
+            Kết nối với mình
+        </h2>
+
+
+        <p>
+            Nếu bạn muốn trao đổi hoặc kết nối,
+            hãy liên hệ với mình.
+        </p>
+
+
+        <div class="social">
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                GitHub
+            </a>
+
+            <a href="#">
+                Email
+            </a>
+
+        </div>
+
+
+        <a href="#top"
+           class="top-button">
+            ↑ Về đầu trang
+        </a>
+
+
+        <p class="copyright">
+            © 2026 Lê Thị Ngọc Tuyết.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+```

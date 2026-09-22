@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website thực đơn Moon Coffee">
+    <title>Moon Coffee - Thực đơn</title>
+
+    <style>
+
+        /* =========================
+           SELECTOR UNIVERSAL
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           SELECTOR TAG
+        ========================= */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f0;
+            color: #3d2b1f;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+        #header {
+            min-height: 180px;
+
+            /* background-size + background-position */
+            background-image:
+                linear-gradient(rgba(60, 35, 20, 0.7),
+                rgba(60, 35, 20, 0.7)),
+                url("images/banner.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 25px;
+            color: white;
+            text-align: center;
+        }
+
+
+        /* SELECTOR CLASS */
+        .logo img {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+
+        .header-text h1 {
+            font-size: 42px;
+            letter-spacing: 3px;
+        }
+
+
+        /* SELECTOR DESCENDANT */
+        .header-text p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        nav {
+            background-color: #4b2e20;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        /* SELECTOR CHILD */
+        nav > ul {
+            list-style: none;
+
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* SELECTOR DESCENDANT */
+        nav ul li a {
+            display: block;
+
+            padding: 15px 25px;
+
+            color: white;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        /* PSEUDO-CLASS */
+        nav ul li a:hover {
+            background-color: #d89b5b;
+            color: #3d2b1f;
+        }
+
+
+        /* =========================
+           BANNER
+        ========================= */
+        .banner {
+            min-height: 400px;
+
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.35),
+                rgba(0, 0, 0, 0.35)),
+                url("images/banner.jpg");
+
+            /* background-size */
+            background-size: cover;
+
+            /* background-position */
+background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+        }
+
+
+        .banner-content h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+
+        .banner-button {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            background-color: #d89b5b;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+
+        .banner-button:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+        main {
+            max-width: 1200px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 280px;
+
+            gap: 30px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+        .menu-section {
+            margin-bottom: 50px;
+        }
+
+
+        /* SELECTOR GROUP */
+        .menu-section h2,
+        aside h2 {
+            margin-bottom: 25px;
+
+            font-size: 28px;
+        }
+
+
+        /* =========================
+           BACKGROUND-ORIGIN
+           BACKGROUND-CLIP
+        ========================= */
+        .menu-section h2 {
+            padding: 10px 20px;
+
+            border-radius: 10px;
+
+            background-color: #ead1b7;
+
+            background-origin: border-box;
+            background-clip: padding-box;
+
+            border-left: 8px solid #8b5e3c;
+        }
+
+
+        /* PSEUDO-ELEMENT */
+        .menu-section h2::before {
+            content: "☕ ";
+        }
+
+
+        /* =========================
+           FOOD LIST
+        ========================= */
+        .food-list {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           ARTICLE CARD
+        ========================= */
+        .food-card {
+            background-color: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            /* box-shadow */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+            transition: 0.3s;
+        }
+
+
+        .food-card:hover {
+            transform: translateY(-8px);
+        }
+
+
+        /* BORDER-RADIUS CHO ẢNH */
+        .food-card img {
+            width: 100%;
+            height: 210px;
+
+            object-fit: cover;
+
+            border-radius: 15px 15px 0 0;
+        }
+
+
+        .food-content {
+            padding: 20px;
+        }
+
+
+        .food-content h3 {
+            font-size: 21px;
+
+            margin-bottom: 8px;
+        }
+/* SELECTOR ADJACENT SIBLING */
+        .food-content h3 + p {
+            color: #666;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           GIÁ
+        ========================= */
+        .price {
+            display: inline-block;
+
+            color: #b45f06;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-right: 15px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+        .food-content button {
+            border: none;
+
+            padding: 9px 16px;
+
+            background-color: #8b5e3c;
+
+            color: white;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .food-content button:hover {
+            background-color: #d89b5b;
+        }
+
+
+        /* =========================
+           ASIDE
+        ========================= */
+        aside {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 30px;
+        }
+
+
+        /* =========================
+           KHUYẾN MÃI
+        ========================= */
+        .promotion {
+            padding: 25px;
+
+            background-color: white;
+
+            /* border-image */
+            border: 10px solid;
+
+            border-image:
+                linear-gradient(
+                    45deg,
+                    #8b5e3c,
+                    #d89b5b,
+                    #8b5e3c
+                ) 1;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .promotion h2 {
+            color: #b45f06;
+        }
+
+
+        .promotion p {
+            margin-bottom: 15px;
+        }
+
+
+        .promotion-price {
+            font-weight: bold;
+        }
+
+
+        .promotion a {
+            color: #8b5e3c;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           MÓN YÊU THÍCH
+        ========================= */
+        .favorite {
+            padding: 25px;
+
+            background-color: white;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .favorite ol {
+            padding-left: 25px;
+        }
+
+
+        .favorite li {
+            margin-bottom: 10px;
+        }
+
+
+        /* PSEUDO-CLASS :first-child */
+        .favorite li:first-child {
+            color: #b45f06;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        /* MULTIPLE BACKGROUND IMAGES */
+        footer {
+            padding: 40px 10% 20px;
+
+            color: white;
+
+            background-image:
+                url("images/banner.jpg"),
+                linear-gradient(#4b2e20, #2b1a12);
+
+            background-size: cover;
+
+            background-position: center;
+background-blend-mode: multiply;
+        }
+
+
+        .footer-content {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .footer-content h3 {
+            margin-bottom: 10px;
+        }
+
+
+        .footer-content a {
+            color: white;
+
+            text-decoration: none;
+        }
+
+
+        .footer-content a:hover {
+            color: #ffd08a;
+        }
+
+
+        .copyright {
+            text-align: center;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.3);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media screen and (max-width: 800px) {
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .food-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+        }
+
+
+        @media screen and (max-width: 600px) {
+
+            #header {
+                flex-direction: column;
+
+                padding: 30px;
+            }
+
+            .header-text h1 {
+                font-size: 30px;
+            }
+
+            nav > ul {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .banner-content h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <header id="header">
+
+        <div class="logo">
+            <img src="1789370055153_118351331079796134_g1382698215456813874_577824565507dff1604096f446f0c3e9.jpg"
+                 alt="Logo HUNGAT Coffee">
+        </div>
+
+        <div class="header-text">
+
+            <h1>HUNGAT COFFEE</h1>
+
+            <p>
+                Nơi thưởng thức những khoảnh khắc ngọt ngào
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="#trangchu">Trang chủ</a>
+            </li>
+
+            <li>
+                <a href="#thucdon">Thực đơn</a>
+            </li>
+
+            <li>
+                <a href="#khuyenmai">Khuyến mãi</a>
+            </li>
+
+            <li>
+                <a href="#lienhe">Liên hệ</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         BANNER
+    ========================= -->
+
+    <section id="trangchu" class="banner">
+
+        <div class="banner-content">
+
+            <h2>
+                Chào mừng đến với Moon Coffee
+            </h2>
+
+            <p>
+                Không gian nhỏ, cà phê ngon
+                và những phút giây thư giãn.
+            </p>
+
+            <a href="#thucdon"
+class="banner-button">
+                Xem thực đơn
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main>
+
+        <div class="menu">
+
+
+            <!-- KHAI VỊ -->
+
+            <section class="menu-section">
+
+                <h2>Khai vị</h2>
+
+                <div class="food-list">
+
+                    <article class="food-card">
+
+                        <img src="images/khai-vi.jpg"
+                             alt="Khoai tây chiên">
+
+                        <div class="food-content">
+
+                            <h3>Khoai tây chiên</h3>
+
+                            <p>
+                                Khoai tây chiên giòn,
+                                dùng kèm tương ớt
+                                và sốt đặc biệt.
+                            </p>
+
+                            <span class="price">
+                                35.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="food-card">
+
+                        <img src="images/khai-vi.jpg"
+                             alt="Gà viên chiên">
+
+                        <div class="food-content">
+
+                            <h3>Gà viên chiên</h3>
+
+                            <p>
+                                Gà viên vàng giòn,
+                                thơm ngon và hấp dẫn.
+                            </p>
+
+                            <span class="price">
+                                45.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- MÓN CHÍNH -->
+
+            <section class="menu-section">
+
+                <h2>Món chính</h2>
+
+                <div class="food-list">
+
+
+                    <article class="food-card">
+
+                        <img src="images/burger.jpg"
+                             alt="Burger bò">
+
+                        <div class="food-content">
+
+                            <h3>Burger bò đặc biệt</h3>
+
+                            <p>
+                                Burger bò mềm,
+                                rau xanh, phô mai
+                                và nước sốt đặc biệt.
+                            </p>
+
+                            <span class="price">
+                                65.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+<article class="food-card">
+
+                        <img src="images/pizza.jpg"
+                             alt="Pizza phô mai">
+
+                        <div class="food-content">
+
+                            <h3>Pizza phô mai</h3>
+
+                            <p>
+                                Pizza nóng giòn
+                                với lớp phô mai
+                                béo ngậy.
+                            </p>
+
+                            <span class="price">
+                                89.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="food-card">
+
+                        <img src="images/pasta.jpg"
+                             alt="Mì Ý">
+
+                        <div class="food-content">
+
+                            <h3>Mì Ý sốt bò</h3>
+
+                            <p>
+                                Mì Ý mềm kết hợp
+                                cùng sốt bò đậm đà.
+                            </p>
+
+                            <span class="price">
+                                75.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- TRÁNG MIỆNG -->
+
+            <section class="menu-section">
+
+                <h2>Tráng miệng</h2>
+
+                <div class="food-list">
+
+                    <article class="food-card">
+
+                        <img src="images/cake.jpg"
+                             alt="Bánh ngọt">
+
+                        <div class="food-content">
+
+                            <h3>Bánh ngọt</h3>
+
+                            <p>
+                                Bánh mềm, thơm
+                                và ngọt vừa phải.
+                            </p>
+
+                            <span class="price">
+                                40.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- THỨC UỐNG -->
+
+            <section class="menu-section"
+                     id="thucdon">
+
+                <h2>Thức uống</h2>
+
+                <div class="food-list">
+
+
+                    <article class="food-card">
+
+                        <img src="images/coffee.jpg"
+                             alt="Cà phê sữa">
+
+                        <div class="food-content">
+
+                            <h3>Cà phê sữa</h3>
+Điện thoại:
+                    0123 456 789
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Giờ mở cửa</h3>
+
+                <p>
+                    Thứ 2 - Chủ nhật
+                </p>
+
+                <p>
+                    07:00 - 22:00
+                </p>
+
+            </div>
+            <div>
+
+                <h3>Mạng xã hội</h3>
+
+                <p>
+                    <a href="#">
+                        Facebook
+                    </a>
+                </p>
+
+                <p>
+                    <a href="#">
+                        Instagram
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Moon Coffee.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+<p>
+                                Cà phê đậm đà
+                                kết hợp cùng
+                                sữa ngọt béo.
+                            </p>
+
+                            <span class="price">
+                                35.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="food-card">
+
+                        <img src="images/milk-tea.jpg"
+                             alt="Trà sữa">
+
+                        <div class="food-content">
+
+                            <h3>Trà sữa trân châu</h3>
+
+                            <p>
+                                Trà sữa thơm béo
+                                cùng trân châu
+                                dai mềm.
+                            </p>
+
+                            <span class="price">
+                                45.000đ
+                            </span>
+
+                            <button>
+                                Đặt món
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =========================
+             ASIDE
+        ========================= -->
+
+        <aside id="khuyenmai">
+
+
+            <div class="promotion">
+
+                <h2>Khuyến mãi</h2>
+
+                <p>
+                    🎉 Ưu đãi đặc biệt trong tuần
+                </p>
+
+                <p>
+                    Mua 2 ly cà phê bất kỳ
+                    được tặng 1 bánh ngọt.
+                </p>
+
+                <p class="promotion-price">
+                    Áp dụng từ thứ 2 đến thứ 6
+                </p>
+
+                <a href="#">
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+
+            <div class="favorite">
+
+                <h2>Món yêu thích</h2>
+
+                <ol>
+
+                    <li>
+                        Cà phê sữa
+                    </li>
+
+                    <li>
+                        Trà sữa trân châu
+                    </li>
+
+                    <li>
+                        Pizza phô mai
+                    </li>
+
+                    <li>
+                        Burger bò đặc biệt
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer id="lienhe">
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <h3>MOON COFFEE</h3>
+
+                <p>
+                    Địa chỉ:
+                    123 Đường ABC,
+                    TP. Hồ Chí Minh
+                </p>
+
+                <p>
